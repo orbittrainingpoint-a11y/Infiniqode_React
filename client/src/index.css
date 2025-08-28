@@ -4,11 +4,11 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(224, 71%, 4%);
+  --background: hsl(0, 0%, 0%);
   --foreground: hsl(210, 40%, 98%);
-  --card: hsl(224, 71%, 4%);
+  --card: hsl(0, 0%, 0%);
   --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(224, 71%, 4%);
+  --popover: hsl(0, 0%, 0%);
   --popover-foreground: hsl(210, 40%, 98%);
   --primary: hsl(262, 83%, 67%);
   --primary-foreground: hsl(210, 40%, 98%);
@@ -28,7 +28,7 @@
   --chart-3: hsl(262, 100%, 50%);
   --chart-4: hsl(280, 100%, 60%);
   --chart-5: hsl(340, 75%, 55%);
-  --sidebar: hsl(224, 71%, 4%);
+  --sidebar: hsl(0, 0%, 0%);
   --sidebar-foreground: hsl(210, 40%, 98%);
   --sidebar-primary: hsl(262, 83%, 67%);
   --sidebar-primary-foreground: hsl(210, 40%, 98%);
@@ -53,11 +53,11 @@
 }
 
 .dark {
-  --background: hsl(224, 71%, 4%);
+  --background: hsl(0, 0%, 0%);
   --foreground: hsl(210, 40%, 98%);
-  --card: hsl(224, 71%, 4%);
+  --card: hsl(0, 0%, 0%);
   --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(224, 71%, 4%);
+  --popover: hsl(0, 0%, 0%);
   --popover-foreground: hsl(210, 40%, 98%);
   --primary: hsl(262, 83%, 67%);
   --primary-foreground: hsl(210, 40%, 98%);
@@ -77,7 +77,7 @@
   --chart-3: hsl(262, 100%, 50%);
   --chart-4: hsl(280, 100%, 60%);
   --chart-5: hsl(340, 75%, 55%);
-  --sidebar: hsl(224, 71%, 4%);
+  --sidebar: hsl(0, 0%, 0%);
   --sidebar-foreground: hsl(210, 40%, 98%);
   --sidebar-primary: hsl(262, 83%, 67%);
   --sidebar-primary-foreground: hsl(210, 40%, 98%);
@@ -93,23 +93,81 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-black text-foreground;
+    background: linear-gradient(135deg, #000000 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #000000 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
   }
 }
 
 @layer utilities {
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.38);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 0 36px 18px rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+  }
+  
+  .glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8),
+      transparent,
+      rgba(255, 255, 255, 0.3)
+    );
   }
   
   .glass-nav {
-    background: rgba(26, 29, 58, 0.8);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
   
   .gradient-text {
@@ -120,11 +178,53 @@
   }
   
   .hero-bg {
-    background: linear-gradient(135deg, #1a1d3a 0%, #000000 50%, #2a2d5a 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(26,26,46,0.8) 50%, rgba(15,52,96,0.7) 100%);
+    position: relative;
   }
   
-  .navy-bg {
-    background: linear-gradient(135deg, #1a1d3a 0%, #2a2d5a 100%);
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .circular-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .circular-logo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    animation: rotate 4s linear infinite;
+  }
+  
+  .circular-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotate 20s linear infinite;
   }
   
   .particle {
@@ -132,6 +232,34 @@
     background: rgba(139, 92, 246, 0.6);
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-element {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+    border-radius: 20px;
+    animation: float3d 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+  
+  .floating-element-1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .floating-element-2 {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+  }
+  
+  .floating-element-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
   }
 }
 
@@ -153,6 +281,23 @@
 @keyframes counter {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float3d {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  33% { 
+    transform: translateY(-30px) rotateX(15deg) rotateY(15deg);
+  }
+  66% { 
+    transform: translateY(-15px) rotateX(-10deg) rotateY(-10deg);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-float {
