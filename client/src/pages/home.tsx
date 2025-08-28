@@ -80,63 +80,101 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden scroll-smooth">
       {/* 1. Hero Section */}
-      <HeroSection />
+      <section className="scroll-snap-section">
+        <HeroSection />
+      </section>
       
       {/* 2. Services Overview */}
-      <ServicesOverview services={services} />
+      <section className="scroll-snap-section">
+        <ServicesOverview services={services} />
+      </section>
       
       {/* 3. Featured Projects */}
-      <FeaturedProjects projects={projects} />
+      <section className="scroll-snap-section">
+        <FeaturedProjects projects={projects} />
+      </section>
       
       {/* 4. Client Testimonials */}
-      <ClientTestimonials testimonials={testimonials} />
+      <section className="scroll-snap-section">
+        <ClientTestimonials testimonials={testimonials} />
+      </section>
       
       {/* 5. Why Choose Us */}
-      <WhyChooseUs />
+      <section className="scroll-snap-section">
+        <WhyChooseUs />
+      </section>
       
       {/* 6. Industry Expertise */}
-      <IndustryExpertise />
+      <section className="scroll-snap-section">
+        <IndustryExpertise />
+      </section>
       
       {/* 7. Our Process */}
-      <OurProcess />
+      <section className="scroll-snap-section">
+        <OurProcess />
+      </section>
       
       {/* 8. Team Spotlight */}
-      <TeamSpotlight />
+      <section className="scroll-snap-section">
+        <TeamSpotlight />
+      </section>
       
       {/* 9. Statistics & Achievements */}
-      <StatisticsSection counters={counters} />
+      <section className="scroll-snap-section">
+        <StatisticsSection counters={counters} />
+      </section>
       
       {/* 10. Technology Stack */}
-      <TechnologyStack />
+      <section className="scroll-snap-section">
+        <TechnologyStack />
+      </section>
       
       {/* 11. Case Studies */}
-      <CaseStudies />
+      <section className="scroll-snap-section">
+        <CaseStudies />
+      </section>
       
       {/* 12. Client Partners */}
-      <ClientPartners />
+      <section className="scroll-snap-section">
+        <ClientPartners />
+      </section>
       
       {/* 13. Latest Blog Posts */}
-      <LatestBlog posts={posts} />
+      <section className="scroll-snap-section">
+        <LatestBlog posts={posts} />
+      </section>
       
       {/* 14. Newsletter Signup */}
-      <NewsletterSection email={email} setEmail={setEmail} onSubmit={handleNewsletterSubmit} loading={newsletterMutation.isPending} />
+      <section className="scroll-snap-section">
+        <NewsletterSection email={email} setEmail={setEmail} onSubmit={handleNewsletterSubmit} loading={newsletterMutation.isPending} />
+      </section>
       
       {/* 15. Contact Information */}
-      <ContactInformation />
+      <section className="scroll-snap-section">
+        <ContactInformation />
+      </section>
       
       {/* 16. Office Locations */}
-      <OfficeLocations />
+      <section className="scroll-snap-section">
+        <OfficeLocations />
+      </section>
       
       {/* 17. FAQ Section */}
-      <FaqSectionNew faqs={faqs} />
+      <section className="scroll-snap-section">
+        <FaqSectionNew faqs={faqs} />
+      </section>
       
       {/* 18. Awards & Recognition */}
-      <AwardsRecognition />
+      <section className="scroll-snap-section">
+        <AwardsRecognition />
+      </section>
       
       {/* 19. Call-to-Action */}
-      <FinalCallToAction />
+      <section className="scroll-snap-section">
+        <FinalCallToAction />
+      </section>
     </div>
   );
 }
